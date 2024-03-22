@@ -2,7 +2,8 @@ let gridContainer = document.createElement("div");
 gridContainer.classList.add("full-grid-container");
 let numberOfSquaresPerSide = 16;
 let passedOnce = false;
-let colorChosen = document.querySelector("input")
+let colorChosen = document.querySelector(".color")
+let opacitySetting = document.querySelector(".opacity")
 const body = document.querySelector("body")
 const buttonDiv = document.querySelector(".buttons");
 buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
@@ -42,7 +43,7 @@ function makeNewGrid() {
             rowContainer.appendChild(div);
             div.style.opacity = 1;
             div.addEventListener("mouseenter", () => {
-                div.style.opacity = div.style.opacity - 0.10
+                div.style.opacity = div.style.opacity - opacitySetting.value
             })
         }
         gridContainer.appendChild(rowContainer);
