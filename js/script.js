@@ -2,16 +2,21 @@ let gridContainer = document.createElement("div");
 gridContainer.classList.add("full-grid-container");
 let numberOfSquaresPerSide = 16;
 let passedOnce = false;
+let colorChosen = document.querySelector("input")
 const body = document.querySelector("body")
-const button = document.querySelector("button");
-button.insertAdjacentElement("beforebegin", gridContainer)
+const buttonDiv = document.querySelector(".buttons");
+buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
+
+colorChosen.defaultValue = "#FFFFFF"
+
+
 
 
 function makeNewGrid() {
     body.removeChild(gridContainer)
     gridContainer = document.createElement("div");
     gridContainer.classList.add("full-grid-container");
-    button.insertAdjacentElement("beforebegin", gridContainer)
+    buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
     if (passedOnce === true) {
         numberOfSquaresPerSide = prompt("Enter number of squares per side of grid.");
     }
@@ -44,3 +49,12 @@ function makeNewGrid() {
 }
 
 makeNewGrid()
+
+colorChosen.addEventListener("change", () => {
+    const allGrids = document.querySelectorAll(".grid");
+    allGrids.forEach(grid => {
+        if (grid.style.backgroundColor !== "black") {
+            grid.style.backgroundColor = colorChosen.value
+        }
+    })
+})
