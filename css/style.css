@@ -5,7 +5,11 @@
 }
 
 div.grid {
-    background-color: red;
+    background-color: white;
+}
+
+div.full-grid-container {
+    border: 1px solid black;
 }
 
 div.row-container {
