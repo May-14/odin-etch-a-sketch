@@ -5,19 +5,18 @@
 }
 
 div.grid {
-    width: 20px;
-    height: 20px;
     background-color: red;
 }
 
 div.row-container {
-    width: 320px;
     display: flex;
 }
 
 body {
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
+

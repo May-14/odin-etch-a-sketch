@@ -1,19 +1,43 @@
-const gridContainer = document.querySelector("div");
+let gridContainer = document.createElement("div");
+gridContainer.classList.add("full-grid-container");
+let numberOfSquaresPerSide = 16;
+const body = document.querySelector("body")
+const button = document.querySelector("button");
+button.insertAdjacentElement("beforebegin", gridContainer)
 
-for (let i = 0; i <16; i++) {
-    const container = document.createElement("div");
-    container.classList.add("row-container");
-    for (let i = 0; i <16; i++) {
+for (let i = 0; i <numberOfSquaresPerSide; i++) {
+    const rowContainer = document.createElement("div");
+    rowContainer.classList.add("row-container");
+    for (let i = 0; i <numberOfSquaresPerSide; i++) {
         const div = document.createElement("div");
         div.classList.add("grid");
-        container.appendChild(div);
+        div.setAttribute("style", `width: ${480/numberOfSquaresPerSide}px; height: ${480/numberOfSquaresPerSide}px;`);
+        rowContainer.appendChild(div);
         div.addEventListener("mouseenter", () => {
             div.style.backgroundColor = "black"
         })
     }
-    gridContainer.appendChild(container);
+    gridContainer.appendChild(rowContainer);
 }
 
 function makeNewGrid() {
-    prompt("Enter number of squares per side of grid.")
+    body.removeChild(gridContainer)
+    gridContainer = document.createElement("div");
+    gridContainer.classList.add("full-grid-container");
+    button.insertAdjacentElement("beforebegin", gridContainer)
+    numberOfSquaresPerSide = Number(prompt("Enter number of squares per side of grid."))
+    for (let i = 0; i <numberOfSquaresPerSide; i++) {
+        const rowContainer = document.createElement("div");
+        rowContainer.classList.add("row-container");
+        for (let i = 0; i <numberOfSquaresPerSide; i++) {
+            const div = document.createElement("div");
+            div.classList.add("grid");
+            div.setAttribute("style", `width: ${480/numberOfSquaresPerSide}px; height: ${480/numberOfSquaresPerSide}px;`)
+            rowContainer.appendChild(div);
+            div.addEventListener("mouseenter", () => {
+                div.style.backgroundColor = "black"
+            })
+        }
+        gridContainer.appendChild(rowContainer);
+    }
 }
