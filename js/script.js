@@ -13,3 +13,7 @@ for (let i = 0; i <16; i++) {
     }
     gridContainer.appendChild(container);
 }
+
+function makeNewGrid() {
+    prompt("Enter number of squares per side of grid.")
+}
