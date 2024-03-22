@@ -25,7 +25,18 @@ function makeNewGrid() {
     gridContainer = document.createElement("div");
     gridContainer.classList.add("full-grid-container");
     button.insertAdjacentElement("beforebegin", gridContainer)
-    numberOfSquaresPerSide = Number(prompt("Enter number of squares per side of grid."))
+    numberOfSquaresPerSide = prompt("Enter number of squares per side of grid.")
+    if (numberOfSquaresPerSide === "" || numberOfSquaresPerSide === null) {
+        numberOfSquaresPerSide = 16;
+    }
+    numberOfSquaresPerSide = +`${numberOfSquaresPerSide}`;
+    while (numberOfSquaresPerSide > 100 || Object.is(numberOfSquaresPerSide, NaN) || typeof numberOfSquaresPerSide !== "number" ||numberOfSquaresPerSide < 1) {
+        numberOfSquaresPerSide = prompt("Try again, please enter a number less than 100 and more than 0");
+        if (numberOfSquaresPerSide === "" || numberOfSquaresPerSide === null) {
+            numberOfSquaresPerSide = 16;
+        }
+        numberOfSquaresPerSide = +`${numberOfSquaresPerSide}`;
+    }
     for (let i = 0; i <numberOfSquaresPerSide; i++) {
         const rowContainer = document.createElement("div");
         rowContainer.classList.add("row-container");
