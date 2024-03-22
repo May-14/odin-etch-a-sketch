@@ -7,6 +7,9 @@ for (let i = 0; i <16; i++) {
         const div = document.createElement("div");
         div.classList.add("grid");
         container.appendChild(div);
+        div.addEventListener("mouseenter", () => {
+            div.style.backgroundColor = "black"
+        })
     }
     gridContainer.appendChild(container);
 }
