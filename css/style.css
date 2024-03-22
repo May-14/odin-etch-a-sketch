@@ -1,0 +1,10 @@
+div {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+
+div.container {
+    width: 320px;
+    display: flex;
+}
