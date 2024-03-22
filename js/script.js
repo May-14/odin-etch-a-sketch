@@ -40,8 +40,9 @@ function makeNewGrid() {
             div.classList.add("grid");
             div.setAttribute("style", `width: ${480/numberOfSquaresPerSide}px; height: ${480/numberOfSquaresPerSide}px;`)
             rowContainer.appendChild(div);
+            div.style.opacity = 1;
             div.addEventListener("mouseenter", () => {
-                div.style.backgroundColor = "black"
+                div.style.opacity = div.style.opacity - 0.10
             })
         }
         gridContainer.appendChild(rowContainer);
