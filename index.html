@@ -10,14 +10,51 @@
     <body>
         <h1>Etch-a-sketch</h1>
         <div class="content">
+            <div class="empty">
+                <span>empty</span>
+            </div>
             <div class="buttons">
                 <button onclick="makeNewGrid()">New Grid</button>
-                <input class="background-color" type="color">
-                <input class="color" type="color">
-                <input class ="opacity" type="range" min="0.1" max="1" step="0.1">
-                <input type="radio" name="tool" value="draw" checked>
-                <input type="radio" name="tool" value="erase">
-                <input type="radio" name="tool" value="none">
+                <div class="keyboard-shortcuts">
+                    <span>Keyboard Shortcuts</span>
+                    <ul>
+                        <li>"c": clear grid</li>
+                        <li>"g": make new grid</li>
+                        <li>"d": select draw tool</li>
+                        <li>"e": select eraser</li>
+                        <li>"n": select none</li>
+                        <li>"+/arrow up": + opacity</li>
+                        <li>"-/arrow down": - opacity</li>
+                    </ul>
+                </div>
+                <div class="opacity-div">
+                    <span>Opacity Setting</span>
+                    <input class ="opacity" type="range" min="0.1" max="1" step="0.1">
+                </div>
+                <div class="colors">
+                    <div class="individual-color">
+                        <span>Background color:</span>
+                        <input class="background-color" type="color">
+                    </div>
+                    <div class="individual-color">
+                        <span>Tool color:</span>
+                        <input class="color" type="color">
+                    </div>
+                </div>
+                <div class="tools">
+                    <div class="individual-tool">
+                        <span>Draw</span>
+                        <input type="radio" name="tool" value="draw" checked>
+                    </div>
+                    <div class="individual-tool">
+                        <span>Erase</span>
+                        <input type="radio" name="tool" value="erase">
+                    </div>
+                    <div class="individual-tool">
+                        <span>None</span>
+                        <input type="radio" name="tool" value="none">
+                    </div>
+                </div>
             </div>
         </div>
     </body>
