@@ -12,8 +12,7 @@ buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
 let toolChosen = "draw";
 gridBackgroundColor.defaultValue = "#FFFFFF"
 content = document.querySelector(".content");
-
-
+opacitySetting.value = 1;
 
 
 function makeNewGrid() {
