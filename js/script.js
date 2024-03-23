@@ -3,18 +3,21 @@ const tools = document.getElementsByName("tool");
 gridContainer.classList.add("full-grid-container");
 let numberOfSquaresPerSide = 16;
 let passedOnce = false;
-let colorChosen = document.querySelector(".color")
+let gridBackgroundColor = document.querySelector(".background-color")
+let toolColor = document.querySelector(".color")
 let opacitySetting = document.querySelector(".opacity")
 const body = document.querySelector("body")
 const buttonDiv = document.querySelector(".buttons");
 buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
 let toolChosen = "draw";
-colorChosen.defaultValue = "#FFFFFF"
+gridBackgroundColor.defaultValue = "#FFFFFF"
 
 
 
 
 function makeNewGrid() {
+    toolColor.value = "#000";
+    gridBackgroundColor.value = "#FFFFFF"
     body.removeChild(gridContainer)
     gridContainer = document.createElement("div");
     gridContainer.classList.add("full-grid-container");
@@ -63,13 +66,17 @@ function makeNewGrid() {
 
 makeNewGrid()
 
-colorChosen.addEventListener("change", () => {
+gridBackgroundColor.addEventListener("change", () => {
     const allGrids = document.querySelectorAll(".grid");
     allGrids.forEach(grid => {
         if (grid.style.backgroundColor !== "black") {
-            grid.style.backgroundColor = colorChosen.value
+            grid.style.backgroundColor = gridBackgroundColor.value
         }
     })
+})
+
+toolColor.addEventListener("change", () => {
+    gridContainer.style.backgroundColor = toolColor.value;
 })
 
 tools.forEach(tool => {
@@ -118,3 +125,4 @@ window.addEventListener("keydown", e => {
         opacitySetting.value = Number(opacitySetting.value) + 0.1;
     }
 })
+
