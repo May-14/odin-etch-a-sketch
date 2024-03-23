@@ -79,7 +79,6 @@ tools.forEach(tool => {
 })
 
 window.addEventListener("keypress", e => {
-    console.log(e.key)
     if (e.key === "e") {
         tools.forEach(tool => {
             if (tool.value !== "erase") {
@@ -110,4 +109,12 @@ window.addEventListener("keypress", e => {
         })
         toolChosen = "none";
     } 
+})
+
+window.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" || e.key === "-") {
+        opacitySetting.value = Number(opacitySetting.value) - 0.1;
+    } else if (e.key === "ArrowUp" || e.key === "+") {
+        opacitySetting.value = Number(opacitySetting.value) + 0.1;
+    }
 })
