@@ -62,6 +62,7 @@ function makeNewGrid() {
         }
         gridContainer.appendChild(rowContainer);
     }
+    body.click()
 }
 
 makeNewGrid()
@@ -85,7 +86,7 @@ tools.forEach(tool => {
     })
 })
 
-window.addEventListener("keypress", e => {
+body.addEventListener("keypress", e => {
     if (e.key === "e") {
         tools.forEach(tool => {
             if (tool.value !== "erase") {
@@ -116,9 +117,18 @@ window.addEventListener("keypress", e => {
         })
         toolChosen = "none";
     } 
+    if (e.key === "c") {
+        const allGrids = document.querySelectorAll(".grid");
+        allGrids.forEach(grid => {
+            grid.style.opacity = 1;
+        })
+    }
+    if (e.key === "g") {
+        makeNewGrid()
+    }
 })
 
-window.addEventListener("keydown", e => {
+body.addEventListener("keydown", e => {
     if (e.key === "ArrowDown" || e.key === "-") {
         opacitySetting.value = Number(opacitySetting.value) - 0.1;
     } else if (e.key === "ArrowUp" || e.key === "+") {
