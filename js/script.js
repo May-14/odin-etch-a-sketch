@@ -1,4 +1,5 @@
 let gridContainer = document.createElement("div");
+const tools = document.getElementsByName("tool");
 gridContainer.classList.add("full-grid-container");
 let numberOfSquaresPerSide = 16;
 let passedOnce = false;
@@ -7,7 +8,7 @@ let opacitySetting = document.querySelector(".opacity")
 const body = document.querySelector("body")
 const buttonDiv = document.querySelector(".buttons");
 buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
-
+let toolChosen = "draw";
 colorChosen.defaultValue = "#FFFFFF"
 
 
@@ -43,7 +44,17 @@ function makeNewGrid() {
             rowContainer.appendChild(div);
             div.style.opacity = 1;
             div.addEventListener("mouseenter", () => {
-                div.style.opacity = div.style.opacity - opacitySetting.value
+                if (toolChosen === "draw") {
+                    div.style.opacity = div.style.opacity - opacitySetting.value;
+                    if (div.style.opacity < 0) {
+                        div.style.opacity = 0;
+                    }
+                } else if (toolChosen === "erase") {
+                    div.style.opacity = Number(div.style.opacity) + Number(opacitySetting.value)
+                    if (div.style.opacity > 1) {
+                        div.style.opacity = 1;
+                    }
+                } 
             })
         }
         gridContainer.appendChild(rowContainer);
@@ -58,5 +69,11 @@ colorChosen.addEventListener("change", () => {
         if (grid.style.backgroundColor !== "black") {
             grid.style.backgroundColor = colorChosen.value
         }
+    })
+})
+
+tools.forEach(tool => {
+    tool.addEventListener("change", () => {
+        toolChosen = tool.value;
     })
 })
