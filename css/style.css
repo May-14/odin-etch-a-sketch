@@ -25,3 +25,7 @@ body {
     justify-content: space-around;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+}

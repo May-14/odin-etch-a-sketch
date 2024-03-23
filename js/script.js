@@ -11,6 +11,7 @@ const buttonDiv = document.querySelector(".buttons");
 buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
 let toolChosen = "draw";
 gridBackgroundColor.defaultValue = "#FFFFFF"
+content = document.querySelector(".content");
 
 
 
@@ -18,7 +19,7 @@ gridBackgroundColor.defaultValue = "#FFFFFF"
 function makeNewGrid() {
     toolColor.value = "#000";
     gridBackgroundColor.value = "#FFFFFF"
-    body.removeChild(gridContainer)
+    content.removeChild(gridContainer)
     gridContainer = document.createElement("div");
     gridContainer.classList.add("full-grid-container");
     buttonDiv.insertAdjacentElement("beforebegin", gridContainer)
