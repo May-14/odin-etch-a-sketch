@@ -77,3 +77,37 @@ tools.forEach(tool => {
         toolChosen = tool.value;
     })
 })
+
+window.addEventListener("keypress", e => {
+    console.log(e.key)
+    if (e.key === "e") {
+        tools.forEach(tool => {
+            if (tool.value !== "erase") {
+                tool.checked = false;
+            } else {
+                tool.checked = true;;
+            }
+        })
+        toolChosen = "erase";
+    } 
+    if (e.key === "d") {
+        tools.forEach(tool => {
+            if (tool.value !== "draw") {
+                tool.checked = false;
+            } else {
+                tool.checked = true;;
+            }
+        })
+        toolChosen = "draw";
+    } 
+    if (e.key === "n") {
+        tools.forEach(tool => {
+            if (tool.value !== "none") {
+                tool.checked = false;
+            } else {
+                tool.checked = true;;
+            }
+        })
+        toolChosen = "none";
+    } 
+})
